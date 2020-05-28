@@ -1,26 +1,43 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function People (props) {
+  console.log("person", props)
+  return(<div>{props.People}</div>)
+}
+
+
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+    people: [{}]
+    }
+  }
+componentDidMount(){
+fetch('https://randomuser.me/api?results=25')
+.then(json => json.json())
+.then(data =>{
+  this.setState({ 
+    people: data
+  }); console.log(data)
+  
+})
+
+}
+
+  render (){
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div className="App"> 
+      <People people = {this.state.people[0]}/>
+    <header className="App-header">
+     
+    </header>
+  </div>
   );
+}
 }
 
 export default App;
+
