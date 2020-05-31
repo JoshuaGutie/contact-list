@@ -28,7 +28,9 @@ class Contact extends Component {
   render() {
     return (
       <div style={{display: "flex", flexGrow: "4", flexDirection: "row", justifyContent: "center", background:"grey", margin:"10px"}}>
-        <h2>{this.props.person.name.first}</h2>
+        <h2>
+          {this.props.person.name.first}
+          </h2>
         <img style={{margin: '5px', width: "200px"}} src={this.props.person.picture.thumbnail} />
         <b><button style={{background: "orange", color: "blue", fontSize: "20px"}} onClick={this.detailsClick}>{this.state.isSelected ? 'show info' : ' hide info'}</button> </b>
         <div class="details">
@@ -36,9 +38,12 @@ class Contact extends Component {
             this.state.isSelected
               ?
               <div>
-                <div ><p>Gender: </p>{this.props.person.gender}</div>
-                <div ><p>Email: </p>{this.props.person.email}</div>
-                <div ><p>Phone: </p>{this.props.person.phone}</div>
+                <div>
+                  <p>Gender: </p>{this.props.person.gender}</div>
+                <div>
+                  <p>Email: </p>{this.props.person.email}</div>
+                <div>
+                  <p>Phone: </p>{this.props.person.phone}</div>
               </div>
               :''
           }
